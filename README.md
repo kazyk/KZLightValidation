@@ -1,2 +1,5 @@
 KZLightValidation
 =================
+
+
+JSONからdeserializeしたようなオブジェクトをゆるふわばりでーしょんします
