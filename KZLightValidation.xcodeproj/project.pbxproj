@@ -25,7 +25,9 @@
 		19DE4E0A8EB36AF94365C930 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DE47E526F2FD7C999E9FB7 /* Default-568h@2x.png */; };
 		19DE4E25F59C136E547BE9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DE4DB968D867EB48A39BC4 /* Foundation.framework */; };
 		19DE4E45B6EAB28271FBD8CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DE41705591F18017541A38 /* Default@2x.png */; };
-		20E17E58193C427097C9DD4A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2BF079B98424FA2536537 /* libPods.a */; settings = {}; };
+		20E17E58193C427097C9DD4A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2BF079B98424FA2536537 /* libPods.a */; };
+		6E1C13AF171824D10093B5E7 /* KZAFJSONRequestOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1C13AD171824D10093B5E7 /* KZAFJSONRequestOperationTests.m */; };
+		6E1C13B0171824D10093B5E7 /* test1.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E1C13AE171824D10093B5E7 /* test1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +67,10 @@
 		19DE4DED44E351A50729B51A /* KZLightValidationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KZLightValidationTests.h; sourceTree = "<group>"; };
 		19DE4E15C94DCE9B6A14C5D2 /* KZLightValidationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "KZLightValidationTests-Info.plist"; sourceTree = "<group>"; };
 		19DE4F84045328622D148A23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2ED2BF079B98424FA2536537 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libPods.a; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED2BF079B98424FA2536537 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E1C13AC171824D10093B5E7 /* KZAFJSONRequestOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZAFJSONRequestOperationTests.h; sourceTree = "<group>"; };
+		6E1C13AD171824D10093B5E7 /* KZAFJSONRequestOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZAFJSONRequestOperationTests.m; sourceTree = "<group>"; };
+		6E1C13AE171824D10093B5E7 /* test1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test1.json; sourceTree = "<group>"; };
 		F8FC5D3F3E0B4980967B20B9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -141,6 +146,9 @@
 		19DE489147D031C23667E422 /* KZLightValidationTests */ = {
 			isa = PBXGroup;
 			children = (
+				6E1C13AC171824D10093B5E7 /* KZAFJSONRequestOperationTests.h */,
+				6E1C13AD171824D10093B5E7 /* KZAFJSONRequestOperationTests.m */,
+				6E1C13AE171824D10093B5E7 /* test1.json */,
 				19DE43D87D9E9C640EC8AD0E /* Supporting Files */,
 				19DE4DED44E351A50729B51A /* KZLightValidationTests.h */,
 				19DE4615A637E9F87CE1E29C /* KZLightValidationTests.m */,
@@ -242,8 +250,6 @@
 			mainGroup = 19DE4CBC7EAC99C9D8425AFE;
 			productRefGroup = 19DE4037A0895F069CBCC37D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				19DE404B89274F2488242D08 /* KZLightValidation */,
@@ -270,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19DE4128DCD1E35EC4CAEC02 /* InfoPlist.strings in Resources */,
+				6E1C13B0171824D10093B5E7 /* test1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +309,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 1;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -324,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19DE432147FCCACA7029AD3D /* KZLightValidationTests.m in Sources */,
+				6E1C13AF171824D10093B5E7 /* KZAFJSONRequestOperationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +407,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KZLightValidation/KZLightValidation-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/Headers";
 				INFOPLIST_FILE = "KZLightValidationTests/KZLightValidationTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -472,6 +480,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KZLightValidation/KZLightValidation-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/Headers";
 				INFOPLIST_FILE = "KZLightValidationTests/KZLightValidationTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
