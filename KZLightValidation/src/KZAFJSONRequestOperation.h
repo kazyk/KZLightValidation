@@ -8,6 +8,8 @@
 
 @class KZLightValidation;
 
+extern NSString *const kKZJSONValidationErrorDomain;
+
 @interface KZAFJSONRequestOperation : AFJSONRequestOperation
 
 + (instancetype)operationWithRequest:(NSURLRequest *)urlRequest

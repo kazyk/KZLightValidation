@@ -6,6 +6,7 @@
 #import "KZAFJSONRequestOperation.h"
 #import "KZLightValidation.h"
 
+NSString *const kKZJSONValidationErrorDomain = @"KZJSONValidationError";
 
 @implementation KZAFJSONRequestOperation
 
@@ -33,8 +34,10 @@
                                                  }
                                              } else {
                                                  if (failure) {
-                                                     //should return some error object?
-                                                     failure(request, response, nil, JSON);
+                                                     NSError *err = [NSError errorWithDomain:kKZJSONValidationErrorDomain
+                                                                                        code:0
+                                                                                    userInfo:nil];
+                                                     failure(request, response, err, JSON);
                                                  }
                                              }
                                          }

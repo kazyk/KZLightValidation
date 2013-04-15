@@ -46,6 +46,7 @@
 - (void)testFailure
 {
     __block BOOL failure = NO;
+    __block NSError *err = nil;
     NSString *dummyPath = [[[NSBundle bundleForClass:[self class]] resourcePath] stringByAppendingPathComponent:@"notfound.json"];
     NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:dummyPath]];
     id operation = [KZAFJSONRequestOperation operationWithRequest:req
@@ -55,14 +56,17 @@
                                                           }
                                                           failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                                                               failure = YES;
+                                                              err = error;
                                                           }];
     [self startAndWait:operation];
     STAssertTrue(failure, @"");
+    STAssertEqualObjects(err.domain, NSURLErrorDomain, @"");
 }
 
 - (void)testInvalidFormat
 {
     __block BOOL failure = NO;
+    __block NSError *err = nil;
     NSURL *URL = [self URLWithName:@"test1"];
     NSURLRequest *req = [NSURLRequest requestWithURL:URL];
     id json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:URL]
@@ -75,10 +79,13 @@
                                                           }
                                                           failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                                                               failure = YES;
+                                                              err = error;
                                                               STAssertEqualObjects(json, JSON, @"");
                                                           }];
     [self startAndWait:operation];
     STAssertTrue(failure, @"");
+    STAssertNotNil(err, @"");
+    STAssertEqualObjects(err.domain, kKZJSONValidationErrorDomain, @"");
 }
 
 @end
