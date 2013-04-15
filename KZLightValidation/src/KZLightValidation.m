@@ -100,6 +100,34 @@
 @end
 
 
+typedef BOOL (^Block)(id object);
+
+@interface KZLightValidationBlock : KZLightValidation
+@end
+
+@implementation KZLightValidationBlock
+{
+    Block _block;
+}
+
+- (KZLightValidation *)initWithFormatObject:(id)formatObject
+{
+    NSParameterAssert(formatObject);
+    self = [super initWithFormatObject:formatObject];
+    if (self) {
+        _block = [formatObject copy];
+    }
+    return self;
+}
+
+- (BOOL)validateObject:(id)object
+{
+    return _block(object);
+}
+@end
+
+
+
 @implementation KZLightValidation
 
 + (instancetype)buildValidator:(id)formatObject
@@ -118,6 +146,10 @@
             validator = [[classMap objectForKey:klass] validatorWithFormatObject:formatObject];
             break;
         }
+        if ([formatObject isKindOfClass:[KZLightValidationBlock class]]) {
+            validator = formatObject;
+            break;
+        }
     }
     if (validator == nil) {
         validator = [KZLightValidation validatorWithFormatObject:formatObject];
@@ -125,6 +157,12 @@
 
     return validator;
 }
+
++ (id)block:(BOOL (^)(id))block
+{
+    return [KZLightValidationBlock validatorWithFormatObject:block];
+}
+
 
 + (instancetype)validatorWithFormatObject:(id)formatObject
 {

@@ -139,4 +139,23 @@
     STAssertFalse([validator validateObject:obj2], @"");
 }
 
+- (void)testBlock
+{
+    KZLightValidation *validator = [KZLightValidation buildValidator:@{
+            @"a": [KZLightValidation block:^BOOL(id object) {
+                return ([object isEqual:@"ok"]);
+            }]
+    }];
+
+    id obj1 = @{
+            @"a": @"ok"
+    };
+    STAssertTrue([validator validateObject:obj1], @"");
+
+    id obj2 = @{
+            @"a": @"ng"
+    };
+    STAssertFalse([validator validateObject:obj2], @"");
+}
+
 @end
