@@ -12,10 +12,6 @@
 
 + (id)block:(BOOL(^)(id object))block;
 
-+ (instancetype)validatorWithFormatObject:(id)formatObject;
-
-- (instancetype)initWithFormatObject:(id)formatObject;
-
 - (BOOL)validateObject:(id)object;
 
 @end
