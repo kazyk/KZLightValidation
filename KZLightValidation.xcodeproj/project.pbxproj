@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19DE4040139290D4235E6E2F /* KZAFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DE4AA6D00FAB980B19886E /* KZAFJSONRequestOperation.m */; };
 		19DE4067A2C78E88FE0141AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DE4CDD0DE784A46AE22F4B /* Default.png */; };
 		19DE406BA8E42E76F234ECD6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19DE4105AD469809C516E1DD /* InfoPlist.strings */; };
 		19DE4078D90BAAF23364E233 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DE42DCE2C0F65B6699E6D7 /* CoreGraphics.framework */; };
@@ -26,7 +25,6 @@
 		19DE4E25F59C136E547BE9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DE4DB968D867EB48A39BC4 /* Foundation.framework */; };
 		19DE4E45B6EAB28271FBD8CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DE41705591F18017541A38 /* Default@2x.png */; };
 		20E17E58193C427097C9DD4A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2BF079B98424FA2536537 /* libPods.a */; };
-		6E1C13AF171824D10093B5E7 /* KZAFJSONRequestOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1C13AD171824D10093B5E7 /* KZAFJSONRequestOperationTests.m */; };
 		6E1C13B0171824D10093B5E7 /* test1.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E1C13AE171824D10093B5E7 /* test1.json */; };
 /* End PBXBuildFile section */
 
@@ -57,9 +55,7 @@
 		19DE492E2F2CDCFA9154EEA9 /* KZLightValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZLightValidation.h; sourceTree = "<group>"; };
 		19DE49C590969FF2238372B5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		19DE49E3747CF075F2F8659C /* KZLightValidation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KZLightValidation.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		19DE4AA6D00FAB980B19886E /* KZAFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZAFJSONRequestOperation.m; sourceTree = "<group>"; };
 		19DE4B0140F825459C3AB5AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		19DE4C8D4892F8620DDD5FD4 /* KZAFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZAFJSONRequestOperation.h; sourceTree = "<group>"; };
 		19DE4CCC32CD74AA5EFD259E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		19DE4CDD0DE784A46AE22F4B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		19DE4CEA5778751E3D447150 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -68,8 +64,6 @@
 		19DE4E15C94DCE9B6A14C5D2 /* KZLightValidationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "KZLightValidationTests-Info.plist"; sourceTree = "<group>"; };
 		19DE4F84045328622D148A23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2ED2BF079B98424FA2536537 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E1C13AC171824D10093B5E7 /* KZAFJSONRequestOperationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZAFJSONRequestOperationTests.h; sourceTree = "<group>"; };
-		6E1C13AD171824D10093B5E7 /* KZAFJSONRequestOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZAFJSONRequestOperationTests.m; sourceTree = "<group>"; };
 		6E1C13AE171824D10093B5E7 /* test1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test1.json; sourceTree = "<group>"; };
 		F8FC5D3F3E0B4980967B20B9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -146,8 +140,6 @@
 		19DE489147D031C23667E422 /* KZLightValidationTests */ = {
 			isa = PBXGroup;
 			children = (
-				6E1C13AC171824D10093B5E7 /* KZAFJSONRequestOperationTests.h */,
-				6E1C13AD171824D10093B5E7 /* KZAFJSONRequestOperationTests.m */,
 				6E1C13AE171824D10093B5E7 /* test1.json */,
 				19DE43D87D9E9C640EC8AD0E /* Supporting Files */,
 				19DE4DED44E351A50729B51A /* KZLightValidationTests.h */,
@@ -161,8 +153,6 @@
 			children = (
 				19DE44F2C80495C818E3A724 /* KZLightValidation.m */,
 				19DE492E2F2CDCFA9154EEA9 /* KZLightValidation.h */,
-				19DE4AA6D00FAB980B19886E /* KZAFJSONRequestOperation.m */,
-				19DE4C8D4892F8620DDD5FD4 /* KZAFJSONRequestOperation.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -321,7 +311,6 @@
 				19DE44ADC7FAD325F5A0EFBD /* AppDelegate.m in Sources */,
 				19DE4B7F2A57E923310BA4CC /* ViewController.m in Sources */,
 				19DE4A490E84F577A9A6A0EC /* KZLightValidation.m in Sources */,
-				19DE4040139290D4235E6E2F /* KZAFJSONRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +319,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				19DE432147FCCACA7029AD3D /* KZLightValidationTests.m in Sources */,
-				6E1C13AF171824D10093B5E7 /* KZAFJSONRequestOperationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +486,7 @@
 				19DE41CFF89DB788B87E32E0 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19DE4C233BBCCA58A37BF276 /* Build configuration list for PBXNativeTarget "KZLightValidation" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +495,7 @@
 				19DE495B18350CEF1144C5E0 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19DE4E7C63D22823522285DA /* Build configuration list for PBXProject "KZLightValidation" */ = {
 			isa = XCConfigurationList;
