@@ -142,7 +142,7 @@
 - (void)testBlock
 {
     KZTValidator *validator = [KZTValidator buildValidator:@{
-            @"a" : [KZTValidator block:^BOOL(id object) {
+            @"a" : [KZTValidator blockValidator:^BOOL(id object) {
                 return ([object isEqual:@"ok"]);
             }]
     }];

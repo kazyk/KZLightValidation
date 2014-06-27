@@ -10,7 +10,7 @@
 
 + (KZTValidator *)buildValidator:(id)formatObject;
 
-+ (id)block:(BOOL(^)(id object))block;
++ (KZTValidator *)blockValidator:(BOOL(^)(id object))block;
 
 - (BOOL)validateObject:(id)object;
 

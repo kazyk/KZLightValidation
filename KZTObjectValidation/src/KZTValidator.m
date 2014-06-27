@@ -106,14 +106,14 @@
 @end
 
 
-typedef BOOL (^Block)(id object);
+typedef BOOL (^KZTValidatorBlock)(id object);
 
 @interface KZTBlockValidator : KZTValidator
 @end
 
 @implementation KZTBlockValidator
 {
-    Block _block;
+    KZTValidatorBlock _block;
 }
 
 - (KZTValidator *)initWithFormatObject:(id)formatObject
@@ -163,7 +163,7 @@ typedef BOOL (^Block)(id object);
     return validator;
 }
 
-+ (id)block:(BOOL (^)(id))block
++ (KZTValidator *)blockValidator:(BOOL(^)(id object))block
 {
     return [KZTBlockValidator validatorWithFormatObject:block];
 }
