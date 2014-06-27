@@ -151,7 +151,7 @@ typedef BOOL (^KZTValidatorBlock)(id object);
             validator = [[classMap objectForKey:klass] validatorWithFormatObject:formatObject];
             break;
         }
-        if ([formatObject isKindOfClass:[KZTBlockValidator class]]) {
+        if ([formatObject isKindOfClass:[KZTValidator class]]) {
             validator = formatObject;
             break;
         }

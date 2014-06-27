@@ -158,4 +158,29 @@
     STAssertFalse([validator validateObject:obj2], @"");
 }
 
+- (void)testNestedValidator
+{
+    KZTValidator *innerValidator = [KZTValidator buildValidator:@{
+            @"a": @123,
+    }];
+    KZTValidator *validator = [KZTValidator buildValidator:@{
+            @"b": innerValidator,
+    }];
+
+    id obj1 = @{
+            @"b": @{@"a": @456},
+    };
+    STAssertTrue([validator validateObject:obj1], @"");
+
+    id obj2 = @{
+            @"b": @{@"a": @"hoge"},
+    };
+    STAssertFalse([validator validateObject:obj2], @"");
+
+    id obj3 = @{
+            @"c": @{@"a": @"hoge"},
+    };
+    STAssertFalse([validator validateObject:obj3], @"");
+}
+
 @end
