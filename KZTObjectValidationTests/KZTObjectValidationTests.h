@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface KZLightValidationTests : SenTestCase
+@interface KZTObjectValidationTests : SenTestCase
 
 @end

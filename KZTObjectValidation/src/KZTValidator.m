@@ -3,49 +3,49 @@
 //
 
 
-#import "KZLightValidation.h"
+#import "KZTValidator.h"
 
 
-@interface KZLightValidation()
-- (KZLightValidation *)initWithFormatObject:(id)formatObject;
+@interface KZTValidator ()
+- (KZTValidator *)initWithFormatObject:(id)formatObject;
 @end
 
 
-@interface KZLightValidationString : KZLightValidation
+@interface KZTStringValidator : KZTValidator
 @end
 
-@implementation KZLightValidationString
+@implementation KZTStringValidator
 - (BOOL)validateObject:(id)object
 {
     return [object isKindOfClass:[NSString class]];
 }
 @end
 
-@interface KZLightValidationNumber : KZLightValidation
+@interface KZTNumberValidator : KZTValidator
 @end
 
-@implementation KZLightValidationNumber
+@implementation KZTNumberValidator
 - (BOOL)validateObject:(id)object
 {
     return [object isKindOfClass:[NSNumber class]];
 }
 @end
 
-@interface KZLightValidationArray : KZLightValidation
+@interface KZTArrayValidator : KZTValidator
 @end
 
-@implementation KZLightValidationArray
+@implementation KZTArrayValidator
 {
-    KZLightValidation *_elementValidator;
+    KZTValidator *_elementValidator;
 }
 
-- (KZLightValidation *)initWithFormatObject:(id)formatObject
+- (KZTValidator *)initWithFormatObject:(id)formatObject
 {
     NSParameterAssert([formatObject isKindOfClass:[NSArray class]]);
     self = [super initWithFormatObject:formatObject];
     if (self) {
         if ([formatObject count] > 0) {
-            _elementValidator = [KZLightValidation buildValidator:formatObject[0]];
+            _elementValidator = [KZTValidator buildValidator:formatObject[0]];
         }
     }
     return self;
@@ -68,15 +68,15 @@
 }
 @end
 
-@interface KZLightValidationDictionary : KZLightValidation
+@interface KZTDictionaryValidator : KZTValidator
 @end
 
-@implementation KZLightValidationDictionary
+@implementation KZTDictionaryValidator
 {
     NSMutableDictionary *_elementValidators;
 }
 
-- (KZLightValidation *)initWithFormatObject:(id)formatObject
+- (KZTValidator *)initWithFormatObject:(id)formatObject
 {
     NSParameterAssert([formatObject isKindOfClass:[NSDictionary class]]);
     self = [super initWithFormatObject:formatObject];
@@ -84,7 +84,7 @@
         if ([formatObject count] > 0) {
             _elementValidators = [[NSMutableDictionary alloc] initWithCapacity:[formatObject count]];
             for (id key in formatObject) {
-                _elementValidators[key] = [KZLightValidation buildValidator:formatObject[key]];
+                _elementValidators[key] = [KZTValidator buildValidator:formatObject[key]];
             }
         }
     }
@@ -108,15 +108,15 @@
 
 typedef BOOL (^Block)(id object);
 
-@interface KZLightValidationBlock : KZLightValidation
+@interface KZTBlockValidator : KZTValidator
 @end
 
-@implementation KZLightValidationBlock
+@implementation KZTBlockValidator
 {
     Block _block;
 }
 
-- (KZLightValidation *)initWithFormatObject:(id)formatObject
+- (KZTValidator *)initWithFormatObject:(id)formatObject
 {
     NSParameterAssert(formatObject);
     self = [super initWithFormatObject:formatObject];
@@ -133,17 +133,17 @@ typedef BOOL (^Block)(id object);
 @end
 
 
-@implementation KZLightValidation
+@implementation KZTValidator
 
 + (instancetype)buildValidator:(id)formatObject
 {
     id validator = nil;
 
     NSDictionary *classMap = @{
-            (id)[NSString class] : [KZLightValidationString class],
-            (id)[NSNumber class] : [KZLightValidationNumber class],
-            (id)[NSArray class] : [KZLightValidationArray class],
-            (id)[NSDictionary class] : [KZLightValidationDictionary class],
+            (id)[NSString class] : [KZTStringValidator class],
+            (id)[NSNumber class] : [KZTNumberValidator class],
+            (id)[NSArray class] : [KZTArrayValidator class],
+            (id)[NSDictionary class] : [KZTDictionaryValidator class],
     };
 
     for (Class klass in classMap) {
@@ -151,13 +151,13 @@ typedef BOOL (^Block)(id object);
             validator = [[classMap objectForKey:klass] validatorWithFormatObject:formatObject];
             break;
         }
-        if ([formatObject isKindOfClass:[KZLightValidationBlock class]]) {
+        if ([formatObject isKindOfClass:[KZTBlockValidator class]]) {
             validator = formatObject;
             break;
         }
     }
     if (validator == nil) {
-        validator = [KZLightValidation validatorWithFormatObject:formatObject];
+        validator = [KZTValidator validatorWithFormatObject:formatObject];
     }
 
     return validator;
@@ -165,7 +165,7 @@ typedef BOOL (^Block)(id object);
 
 + (id)block:(BOOL (^)(id))block
 {
-    return [KZLightValidationBlock validatorWithFormatObject:block];
+    return [KZTBlockValidator validatorWithFormatObject:block];
 }
 
 

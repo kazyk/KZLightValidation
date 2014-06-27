@@ -6,9 +6,9 @@
 #import <Foundation/Foundation.h>
 
 
-@interface KZLightValidation : NSObject
+@interface KZTValidator : NSObject
 
-+ (KZLightValidation *)buildValidator:(id)formatObject;
++ (KZTValidator *)buildValidator:(id)formatObject;
 
 + (id)block:(BOOL(^)(id object))block;
 
