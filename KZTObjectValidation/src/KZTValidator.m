@@ -10,7 +10,8 @@ static NSString *const KZTValidatorFormatException = @"KZTValidatorFormatExcepti
 
 
 @interface KZTValidator ()
-- (KZTValidator *)initWithFormatObject:(id)formatObject;
++ (instancetype)validator;
+- (instancetype)initWithFormatObject:(id)formatObject;
 @end
 
 
@@ -141,16 +142,6 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 
 @implementation KZTAnyValidator
 
-+ (instancetype)anyValidator
-{
-    static KZTAnyValidator *validator;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        validator = [[KZTAnyValidator alloc] init];
-    });
-    return validator;
-}
-
 - (BOOL)validateObject:(id)object
 {
     return YES;
@@ -163,16 +154,6 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 @end
 
 @implementation KZTNotNilValidator
-
-+ (instancetype)notNilValidator
-{
-    static KZTNotNilValidator *validator;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        validator = [[KZTNotNilValidator alloc] init];
-    });
-    return validator;
-}
 
 - (BOOL)validateObject:(id)object
 {
@@ -197,7 +178,7 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 
     for (Class klass in classMap) {
         if ([formatObject isKindOfClass:klass]) {
-            validator = [[classMap objectForKey:klass] validatorWithFormatObject:formatObject];
+            validator = [[[classMap objectForKey:klass] alloc] initWithFormatObject:formatObject];
             break;
         }
         if ([formatObject isKindOfClass:[KZTValidator class]]) {
@@ -218,22 +199,22 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 
 + (KZTValidator *)block:(BOOL(^)(id object))block
 {
-    return [KZTBlockValidator validatorWithFormatObject:block];
+    return [[KZTBlockValidator alloc] initWithFormatObject:block];
 }
 
 + (KZTValidator *)any
 {
-    return [KZTAnyValidator anyValidator];
+    return [KZTAnyValidator validator];
 }
 
 + (KZTValidator *)notNil
 {
-    return [KZTNotNilValidator notNilValidator];
+    return [KZTNotNilValidator validator];
 }
 
-+ (instancetype)validatorWithFormatObject:(id)formatObject
++ (instancetype)validator
 {
-    return [[self alloc] initWithFormatObject:formatObject];
+    return [[self alloc] initWithFormatObject:nil];
 }
 
 - (instancetype)initWithFormatObject:(id __unused)formatObject
