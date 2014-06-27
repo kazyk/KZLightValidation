@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'KZLightValidation' target in the 'KZLightValidation' project
+// Prefix header for all source files of the 'KZTObjectValidation' target in the 'KZTObjectValidation' project
 //
 
 #import <Availability.h>

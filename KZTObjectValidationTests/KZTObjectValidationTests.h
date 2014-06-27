@@ -1,9 +1,5 @@
 //
-//  KZLightValidationTests.h
-//  KZLightValidationTests
-//
-//  Created by kazuyuki takahashi on 04/12/13.
-//  Copyright (c) 2013 kazuyuki takahashi. All rights reserved.
+//  Created by TAKAHASHI kazuyuki on 2013/04/12.
 //
 
 #import <SenTestingKit/SenTestingKit.h>
