@@ -1,4 +1,4 @@
-KZLightValidation
+KZTObjectValidation
 =================
 
 
