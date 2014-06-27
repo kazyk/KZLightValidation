@@ -48,7 +48,7 @@ static NSString *const KZTValidatorFormatException = @"KZTValidatorFormatExcepti
     self = [super initWithFormatObject:formatObject];
     if (self) {
         if ([formatObject count] > 0) {
-            _elementValidator = [KZTValidator buildValidator:formatObject[0]];
+            _elementValidator = [KZTValidator build:formatObject[0]];
         }
     }
     return self;
@@ -87,7 +87,7 @@ static NSString *const KZTValidatorFormatException = @"KZTValidatorFormatExcepti
         if ([formatObject count] > 0) {
             _elementValidators = [[NSMutableDictionary alloc] initWithCapacity:[formatObject count]];
             for (id key in formatObject) {
-                _elementValidators[key] = [KZTValidator buildValidator:formatObject[key]];
+                _elementValidators[key] = [KZTValidator build:formatObject[key]];
             }
         }
     }
@@ -141,7 +141,7 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 
 @implementation KZTAnyValidator
 
-+ (instancetype)any
++ (instancetype)anyValidator
 {
     static KZTAnyValidator *validator;
     static dispatch_once_t once;
@@ -164,7 +164,7 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 
 @implementation KZTNotNilValidator
 
-+ (instancetype)notNil
++ (instancetype)notNilValidator
 {
     static KZTNotNilValidator *validator;
     static dispatch_once_t once;
@@ -184,7 +184,7 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 
 @implementation KZTValidator
 
-+ (instancetype)buildValidator:(id)formatObject
++ (instancetype)build:(id)formatObject
 {
     id validator = nil;
 
@@ -216,19 +216,19 @@ typedef BOOL (^KZTValidatorBlock)(id object);
     return validator;
 }
 
-+ (KZTValidator *)blockValidator:(BOOL(^)(id object))block
++ (KZTValidator *)block:(BOOL(^)(id object))block
 {
     return [KZTBlockValidator validatorWithFormatObject:block];
 }
 
-+ (KZTValidator *)anyValidator
++ (KZTValidator *)any
 {
-    return [KZTAnyValidator any];
+    return [KZTAnyValidator anyValidator];
 }
 
-+ (KZTValidator *)notNilValidator
++ (KZTValidator *)notNil
 {
-    return [KZTNotNilValidator notNil];
+    return [KZTNotNilValidator notNilValidator];
 }
 
 + (instancetype)validatorWithFormatObject:(id)formatObject

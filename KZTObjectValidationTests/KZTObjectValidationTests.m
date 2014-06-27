@@ -9,7 +9,7 @@
 
 - (void)testNilFormat
 {
-    KZTValidator *validator = [KZTValidator anyValidator];
+    KZTValidator *validator = [KZTValidator any];
     STAssertTrue([validator validateObject:nil], @"");
     STAssertTrue([validator validateObject:@""], @"");
     STAssertTrue([validator validateObject:@[]], @"");
@@ -20,7 +20,7 @@
 
 - (void)testNotNil
 {
-    KZTValidator *validator = [KZTValidator notNilValidator];
+    KZTValidator *validator = [KZTValidator notNil];
     STAssertFalse([validator validateObject:nil], @"");
     STAssertTrue([validator validateObject:@""], @"");
     STAssertTrue([validator validateObject:@[]], @"");
@@ -31,7 +31,7 @@
 
 - (void)testSimpleString
 {
-    KZTValidator *validator = [KZTValidator buildValidator:@""];
+    KZTValidator *validator = [KZTValidator build:@""];
     STAssertTrue([validator validateObject:@"hoge"], @"");
     STAssertTrue([validator validateObject:@""], @"");
     STAssertFalse([validator validateObject:nil], @"");
@@ -42,7 +42,7 @@
 
 - (void)testSimpleNumber
 {
-    KZTValidator *validator = [KZTValidator buildValidator:@1];
+    KZTValidator *validator = [KZTValidator build:@1];
     STAssertTrue([validator validateObject:@1], @"");
     STAssertTrue([validator validateObject:@0], @"");
     STAssertFalse([validator validateObject:@"hoge"], @"");
@@ -54,7 +54,7 @@
 
 - (void)testSimpleArray
 {
-    KZTValidator *validator = [KZTValidator buildValidator:@[]];
+    KZTValidator *validator = [KZTValidator build:@[]];
     STAssertTrue([validator validateObject:@[]], @"");
     BOOL b = [validator validateObject:@[@1, @"123", @{}, @[]]];
     STAssertTrue(b, @"");
@@ -66,7 +66,7 @@
 
 - (void)testSimpleDictionary
 {
-    KZTValidator *validator = [KZTValidator buildValidator:@{}];
+    KZTValidator *validator = [KZTValidator build:@{}];
     STAssertTrue([validator validateObject:@{}], @"");
     id obj = @{
             @"a": @"123",
@@ -82,7 +82,7 @@
 
 - (void)testArrayOfString
 {
-    KZTValidator *validator = [KZTValidator buildValidator:@[@""]];
+    KZTValidator *validator = [KZTValidator build:@[@""]];
     STAssertTrue([validator validateObject:@[]], @"");
     STAssertTrue([validator validateObject:@[@"abc"]], @"");
     id obj1 = @[@"a", @"b", @"c"];
@@ -93,7 +93,7 @@
 
 - (void)testCompositeDictionary
 {
-    KZTValidator *validator = [KZTValidator buildValidator:@{
+    KZTValidator *validator = [KZTValidator build:@{
             @"a" : @"string",
             @"b" : @123,
             @"c" : @[],
@@ -123,7 +123,7 @@
 
 - (void)testNestedDictionary
 {
-    KZTValidator *validator = [KZTValidator buildValidator:@{
+    KZTValidator *validator = [KZTValidator build:@{
             @"a" : @{
                     @"b" : @"string",
                     @"c" : @123,
@@ -149,8 +149,8 @@
 
 - (void)testBlock
 {
-    KZTValidator *validator = [KZTValidator buildValidator:@{
-            @"a" : [KZTValidator blockValidator:^BOOL(id object) {
+    KZTValidator *validator = [KZTValidator build:@{
+            @"a" : [KZTValidator block:^BOOL(id object) {
                 return ([object isEqual:@"ok"]);
             }]
     }];
@@ -168,11 +168,11 @@
 
 - (void)testNestedValidator
 {
-    KZTValidator *innerValidator = [KZTValidator buildValidator:@{
-            @"a": @123,
+    KZTValidator *innerValidator = [KZTValidator build:@{
+            @"a" : @123,
     }];
-    KZTValidator *validator = [KZTValidator buildValidator:@{
-            @"b": innerValidator,
+    KZTValidator *validator = [KZTValidator build:@{
+            @"b" : innerValidator,
     }];
 
     id obj1 = @{

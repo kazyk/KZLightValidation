@@ -8,13 +8,13 @@
 
 @interface KZTValidator : NSObject
 
-+ (KZTValidator *)buildValidator:(id)formatObject;
++ (KZTValidator *)build:(id)formatObject;
 
-+ (KZTValidator *)blockValidator:(BOOL(^)(id object))block;
++ (KZTValidator *)block:(BOOL(^)(id object))block;
 
-+ (KZTValidator *)anyValidator;
++ (KZTValidator *)any;
 
-+ (KZTValidator *)notNilValidator;
++ (KZTValidator *)notNil;
 
 - (BOOL)validateObject:(id)object;
 
