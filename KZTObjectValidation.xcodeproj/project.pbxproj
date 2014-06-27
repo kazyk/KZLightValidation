@@ -365,7 +365,7 @@
 		19DE41CFF89DB788B87E32E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KZLightValidation.app/KZLightValidation";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KZTObjectValidation.app/KZTObjectValidation";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -436,7 +436,7 @@
 		19DE4D297FA637660F2B346D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KZLightValidation.app/KZLightValidation";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KZTObjectValidation.app/KZTObjectValidation";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
