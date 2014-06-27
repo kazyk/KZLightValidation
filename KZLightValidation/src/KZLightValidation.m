@@ -5,6 +5,12 @@
 
 #import "KZLightValidation.h"
 
+
+@interface KZLightValidation()
+- (KZLightValidation *)initWithFormatObject:(id)formatObject;
+@end
+
+
 @interface KZLightValidationString : KZLightValidation
 @end
 
@@ -125,7 +131,6 @@ typedef BOOL (^Block)(id object);
     return _block(object);
 }
 @end
-
 
 
 @implementation KZLightValidation
