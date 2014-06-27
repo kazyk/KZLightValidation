@@ -371,9 +371,9 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KZLightValidation/KZLightValidation-Prefix.pch";
+				GCC_PREFIX_HEADER = "KZTObjectValidation/KZTObjectValidation-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/Headers";
-				INFOPLIST_FILE = "KZLightValidationTests/KZTObjectValidationTests-Info.plist";
+				INFOPLIST_FILE = "KZTObjectValidationTests/KZTObjectValidationTests-Info.plist";
 				PRODUCT_NAME = KZTObjectValidationTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -415,8 +415,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KZLightValidation/KZTObjectValidation-Prefix.pch";
-				INFOPLIST_FILE = "KZLightValidation/KZTObjectValidation-Info.plist";
+				GCC_PREFIX_HEADER = "KZTObjectValidation/KZTObjectValidation-Prefix.pch";
+				INFOPLIST_FILE = "KZTObjectValidation/KZTObjectValidation-Info.plist";
 				PRODUCT_NAME = KZTObjectValidation;
 				WRAPPER_EXTENSION = app;
 			};
@@ -426,8 +426,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KZLightValidation/KZTObjectValidation-Prefix.pch";
-				INFOPLIST_FILE = "KZLightValidation/KZTObjectValidation-Info.plist";
+				GCC_PREFIX_HEADER = "KZTObjectValidation/KZTObjectValidation-Prefix.pch";
+				INFOPLIST_FILE = "KZTObjectValidation/KZTObjectValidation-Info.plist";
 				PRODUCT_NAME = KZTObjectValidation;
 				WRAPPER_EXTENSION = app;
 			};
@@ -442,9 +442,9 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KZLightValidation/KZLightValidation-Prefix.pch";
+				GCC_PREFIX_HEADER = "KZTObjectValidation/KZTObjectValidation-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Pods/Headers";
-				INFOPLIST_FILE = "KZLightValidationTests/KZTObjectValidationTests-Info.plist";
+				INFOPLIST_FILE = "KZTObjectValidationTests/KZTObjectValidationTests-Info.plist";
 				PRODUCT_NAME = KZTObjectValidationTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
