@@ -12,6 +12,10 @@
 
 + (KZTValidator *)blockValidator:(BOOL(^)(id object))block;
 
++ (KZTValidator *)anyValidator;
+
++ (KZTValidator *)notNilValidator;
+
 - (BOOL)validateObject:(id)object;
 
 @end

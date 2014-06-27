@@ -13,12 +13,24 @@
 
 - (void)testNilFormat
 {
-    KZTValidator *validator = [KZTValidator buildValidator:nil];
+    KZTValidator *validator = [KZTValidator anyValidator];
     STAssertTrue([validator validateObject:nil], @"");
     STAssertTrue([validator validateObject:@""], @"");
     STAssertTrue([validator validateObject:@[]], @"");
     STAssertTrue([validator validateObject:@{}], @"");
     STAssertTrue([validator validateObject:@123], @"");
+    STAssertTrue([validator validateObject:[NSNull null]], @"");
+}
+
+- (void)testNotNil
+{
+    KZTValidator *validator = [KZTValidator notNilValidator];
+    STAssertFalse([validator validateObject:nil], @"");
+    STAssertTrue([validator validateObject:@""], @"");
+    STAssertTrue([validator validateObject:@[]], @"");
+    STAssertTrue([validator validateObject:@{}], @"");
+    STAssertTrue([validator validateObject:@123], @"");
+    STAssertFalse([validator validateObject:[NSNull null]], @"");
 }
 
 - (void)testSimpleString

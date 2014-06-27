@@ -6,6 +6,9 @@
 #import "KZTValidator.h"
 
 
+static NSString *const KZTValidatorFormatException = @"KZTValidatorFormatException";
+
+
 @interface KZTValidator ()
 - (KZTValidator *)initWithFormatObject:(id)formatObject;
 @end
@@ -133,6 +136,52 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 @end
 
 
+@interface KZTAnyValidator : KZTValidator
+@end
+
+@implementation KZTAnyValidator
+
++ (instancetype)any
+{
+    static KZTAnyValidator *validator;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        validator = [[KZTAnyValidator alloc] init];
+    });
+    return validator;
+}
+
+- (BOOL)validateObject:(id)object
+{
+    return YES;
+}
+
+@end
+
+
+@interface KZTNotNilValidator : KZTValidator
+@end
+
+@implementation KZTNotNilValidator
+
++ (instancetype)notNil
+{
+    static KZTNotNilValidator *validator;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        validator = [[KZTNotNilValidator alloc] init];
+    });
+    return validator;
+}
+
+- (BOOL)validateObject:(id)object
+{
+    return (object != nil && object != [NSNull null]);
+}
+
+@end
+
+
 @implementation KZTValidator
 
 + (instancetype)buildValidator:(id)formatObject
@@ -157,7 +206,11 @@ typedef BOOL (^KZTValidatorBlock)(id object);
         }
     }
     if (validator == nil) {
-        validator = [KZTValidator validatorWithFormatObject:formatObject];
+        [[NSException exceptionWithName:KZTValidatorFormatException
+                                 reason:@"format object is invalid"
+                               userInfo:@{
+                                       @"object": formatObject,
+                               }] raise];
     }
 
     return validator;
@@ -168,6 +221,15 @@ typedef BOOL (^KZTValidatorBlock)(id object);
     return [KZTBlockValidator validatorWithFormatObject:block];
 }
 
++ (KZTValidator *)anyValidator
+{
+    return [KZTAnyValidator any];
+}
+
++ (KZTValidator *)notNilValidator
+{
+    return [KZTNotNilValidator notNil];
+}
 
 + (instancetype)validatorWithFormatObject:(id)formatObject
 {
@@ -188,6 +250,7 @@ typedef BOOL (^KZTValidatorBlock)(id object);
 
 - (BOOL)validateObject:(id)object
 {
+    NSAssert(NO, @"not implemented");
     return YES;
 }
 
