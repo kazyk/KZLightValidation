@@ -24,7 +24,6 @@
 		19DE4E0A8EB36AF94365C930 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DE47E526F2FD7C999E9FB7 /* Default-568h@2x.png */; };
 		19DE4E25F59C136E547BE9C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DE4DB968D867EB48A39BC4 /* Foundation.framework */; };
 		19DE4E45B6EAB28271FBD8CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DE41705591F18017541A38 /* Default@2x.png */; };
-		20E17E58193C427097C9DD4A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2BF079B98424FA2536537 /* libPods.a */; };
 		6E1C13B0171824D10093B5E7 /* test1.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E1C13AE171824D10093B5E7 /* test1.json */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +64,6 @@
 		19DE4F84045328622D148A23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2ED2BF079B98424FA2536537 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1C13AE171824D10093B5E7 /* test1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test1.json; sourceTree = "<group>"; };
-		F8FC5D3F3E0B4980967B20B9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +84,6 @@
 				19DE42DFBEDA324851E86C97 /* UIKit.framework in Frameworks */,
 				19DE414AF810DCF5B6D36192 /* Foundation.framework in Frameworks */,
 				19DE4078D90BAAF23364E233 /* CoreGraphics.framework in Frameworks */,
-				20E17E58193C427097C9DD4A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +175,6 @@
 				19DE42B8BF0CA6E005C01914 /* Frameworks */,
 				19DE4C5F8B37A3165E61DB38 /* KZLightValidation */,
 				19DE489147D031C23667E422 /* KZLightValidationTests */,
-				F8FC5D3F3E0B4980967B20B9 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,7 +188,6 @@
 				19DE4B7CBD6491544A0F95B8 /* Sources */,
 				19DE4A23AA1FB899463D2E17 /* Frameworks */,
 				19DE4317D05BF8666777D8A7 /* Resources */,
-				1C1B2CB6EAF844AB9C9295A0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,20 +280,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		1C1B2CB6EAF844AB9C9295A0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -436,7 +417,6 @@
 		};
 		19DE495B18350CEF1144C5E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8FC5D3F3E0B4980967B20B9 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KZLightValidation/KZLightValidation-Prefix.pch";
@@ -448,7 +428,6 @@
 		};
 		19DE49C0BF290B201FF7B3DD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8FC5D3F3E0B4980967B20B9 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KZLightValidation/KZLightValidation-Prefix.pch";
